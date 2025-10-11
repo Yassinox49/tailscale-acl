@@ -1,0 +1,114 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+        args: ['--unsafe']
+      - id: check-json
+      - id: check-added-large-files
+        args: ['--maxkb=1000']
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: debug-statements
+      - id: detect-private-key
+
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.32.0
+    hooks:
+      - id: yamllint
+        args: [--format, parsable, --strict]
+        exclude: ^(.github/workflows/|node_modules/)
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.0.0
+    hooks:
+      - id: prettier
+        exclude: ^(policy\.hujson|\.cursorrules|\.clinerules)$
+
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black
+        language_version: python3
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
+
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.9.0.5
+    hooks:
+      - id: shellcheck
+
+  - repo: https://github.com/Lucas-C/pre-commit-hooks-safety
+    rev: v1.3.2
+    hooks:
+      - id: python-safety-dependencies-check
+
+  - repo: local
+    hooks:
+      - id: hujson-syntax-check
+        name: Validate HuJSON syntax for Tailscale policy
+        entry: bash
+        language: system
+        files: '^policy\.hujson$'
+        args:
+          - -c
+          - |
+            if command -v jq >/dev/null 2>&1; then
+              # Use jq to validate JSON syntax, ignoring comments
+              cat policy.hujson | sed 's|//.*||g' | jq . >/dev/null
+              echo "HuJSON syntax validation passed for policy.hujson"
+            else
+              echo "Warning: jq not available for HuJSON validation"
+            fi
+
+      - id: tailscale-acl-security-check
+        name: Basic security checks for Tailscale ACL
+        entry: bash
+        language: system
+        files: '^policy\.hujson$'
+        args:
+          - -c
+          - |
+            echo "Running basic security checks on Tailscale ACL policy..."
+
+            # Check for overly permissive rules
+            if grep -q '"action": "accept".*"*"' policy.hujson; then
+              echo "Warning: Found potentially overly permissive ACL rules using wildcards"
+            fi
+
+            # Check for individual email addresses (should use groups)
+            if grep -oE '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}' policy.hujson | wc -l > 5; then
+              echo "Warning: Consider using groups instead of individual email addresses"
+            fi
+
+            # Check for test cases
+            if ! grep -q '"tests":' policy.hujson; then
+              echo "Warning: No test cases found in policy.hujson"
+              exit 1
+            fi
+
+            echo "Basic security checks completed"
+
+      - id: no-secrets-check
+        name: Check for potential secrets in files
+        entry: bash
+        language: system
+        exclude: ^(.git/|node_modules/)
+        args:
+          - -c
+          - |
+            if grep -r -E "(api[_-]?key|secret|token|password|pwd)" --include="*.json" --include="*.yaml" --include="*.yml" --include="*.md" .; then
+              echo "Warning: Potential secrets found in files"
+              exit 1
+            fi
+
+# Global pre-commit configuration
+default_stages: [commit]
+fail_fast: false
+minimum_pre_commit_version: 3.0.0

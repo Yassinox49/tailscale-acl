@@ -1,0 +1,69 @@
+# Aider Configuration for Tailscale ACL Repository
+
+# Main model configuration
+model: gpt-4o
+
+# Repository-specific settings
+read:
+  - policy.hujson
+  - README.md
+  - .github/workflows/tailscale.yml
+  - AGENTS.md
+
+# Enable specific features for Tailscale ACL development
+lint-cmd: yamllint .github/workflows/tailscale.yml
+test-cmd: echo "No automated tests configured - manual validation required"
+auto-commits: false
+dirty-commits: true
+commit-prompt: |
+  Please provide a clear, semantic commit message that explains:
+  1. The type of change (feat, fix, docs, refactor, etc.)
+  2. What ACL policy changes were made
+  3. The business justification or security impact
+  4. Any testing performed
+
+# File editing preferences
+editor-edit-format: whole
+edit-format: diff
+
+# Git settings
+git: true
+gitignore: true
+check-update: false
+
+# Output and formatting
+pretty: true
+stream: true
+user-input-color: "#00ff00"
+tool-output-color: "#0088ff"
+tool-error-color: "#ff0000"
+
+# Tailscale-specific instructions
+additional-instructions: |
+  You are an expert in Tailscale ACL management and GitOps workflows. When working on this repository:
+
+  1. NEVER rename the policy.hujson file - this breaks GitHub Actions integration
+  2. Always maintain valid HuJSON format with comments and trailing commas
+  3. Use groups for user management instead of individual email addresses
+  4. Include comprehensive test cases for all ACL rule changes
+  5. Follow least privilege security principles
+  6. Add descriptive comments explaining the business reason for access rules
+  7. Consider the security implications of all changes
+  8. Validate that GitHub Actions workflow remains functional
+  9. Include both positive and negative test scenarios
+  10. Use semantic commit messages for better change tracking
+
+# Environment variables (do not store secrets here)
+env:
+  TAILSCALE_REPO: "true"
+  ACL_VALIDATION: "strict"
+
+# Suggested commit message template
+commit-message-template: |
+  {type}: {description}
+
+  {body}
+
+  - Changed: {changed_files}
+  - Security impact: {security_impact}
+  - Testing: {testing_performed}

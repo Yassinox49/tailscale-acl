@@ -1,0 +1,103 @@
+.git
+.gitignore
+.github
+.vscode
+.idea
+
+# Documentation
+README.md
+*.md
+docs/
+CHANGELOG.md
+LICENSE
+CONTRIBUTING.md
+
+# Configuration files for development
+.env*
+.local
+local.config.*
+development.config.*
+
+# Editor and IDE files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+logs/
+temp/
+
+# Test files and coverage
+test/
+tests/
+spec/
+coverage/
+*.test.*
+*.spec.*
+
+# Development dependencies
+node_modules/
+.npm
+.cache
+
+# Build artifacts
+dist/
+build/
+target/
+out/
+
+# CI/CD files (keep only necessary ones)
+.github/workflows/
+.travis.yml
+.circleci/
+.gitlab-ci.yml
+azure-pipelines.yml
+
+# Package manager files
+package-lock.json
+yarn.lock
+composer.lock
+Gemfile.lock
+
+# Runtime and cache
+.cache/
+.eslintcache
+.stylelintcache
+.nyc_output
+
+# Security sensitive files
+*.key
+*.pem
+*.p12
+*.crt
+secrets.*
+
+# Backup and temporary
+*.bak
+*.backup
+*~
+
+# AI agent configuration files (not needed in container)
+.cursorrules
+.clinerules
+AGENTS.md
+CLAUDE.md
+GEMINI_RULES.md
+.aider.conf.yml
+
+# OS specific
+.fseventsd
+.DocumentRevisions-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.AppleDouble
+.LSOverride
+Network Trash Folder
+Temporary Items
+.apdisk

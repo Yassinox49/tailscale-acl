@@ -1,0 +1,62 @@
+# Cline Rules for Tailscale ACL Management
+
+## Project Overview
+This repository manages Tailscale Access Control Lists using GitOps principles. The primary focus is on network security, infrastructure automation, and reliable ACL deployments.
+
+## Key Technologies
+- Tailscale: Zero-trust network access platform
+- GitHub Actions: CI/CD for ACL synchronization  
+- HuJSON: Human-readable JSON format for ACL policies
+- GitOps: Infrastructure-as-code methodology
+
+## Development Guidelines
+
+### ACL Policy Management
+- Edit only the policy.hujson file for ACL changes
+- Use descriptive comments to explain access rules
+- Follow least privilege security principles
+- Group users logically using Tailscale groups
+- Tag devices appropriately for access control
+
+### File Structure
+- `policy.hujson`: Main Tailscale ACL policy (do not rename)
+- `.github/workflows/tailscale.yml`: GitHub Actions workflow
+- `README.md`: Project documentation and setup instructions
+- Configuration files: Various AI agent configurations
+
+### Security Best Practices
+- Never commit Tailscale API keys or secrets
+- Use GitHub repository secrets for credentials
+- Regularly audit access control policies
+- Test ACL changes in staging environments
+- Monitor failed deployments and access denials
+
+### Testing Strategy
+- Include ACL tests in the policy.hujson file
+- Use Tailscale's built-in test functionality
+- Validate connectivity after policy changes
+- Test both positive and negative access scenarios
+
+### Git Workflow
+- Use feature branches for all ACL modifications
+- Write descriptive commit messages explaining changes
+- Require pull request reviews for policy changes
+- Merge only after successful CI/CD validation
+
+### Error Resolution
+- Check GitHub Actions logs for deployment failures
+- Validate HuJSON syntax using appropriate tools
+- Monitor Tailscale admin console for policy conflicts
+- Document and share solutions to common issues
+
+## Common Commands
+- Test ACL locally: Use Tailscale CLI tools where possible
+- Validate HuJSON: Check syntax before committing
+- Deploy policies: Automatic via GitHub Actions on merge
+- Rollback: Use git revert for problematic changes
+
+## Important Notes
+- The repository syncs automatically to Tailscale on main branch changes
+- Failed deployments will not update the Tailscale ACL policies
+- Always test changes thoroughly before production deployment
+- Keep the policy.hujson file as the single source of truth

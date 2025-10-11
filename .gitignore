@@ -1,0 +1,116 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor and IDE Files
+.vscode/launch.json
+.vscode/tasks.json
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# Temporary Files
+*.tmp
+*.temp
+*.log
+*.pid
+*.seed
+*.lock
+
+# Environment and Configuration
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.local
+
+# Security Sensitive Files
+*.key
+*.pem
+*.p12
+*.crt
+secrets.yaml
+secrets.yml
+config.secret.*
+
+# Backup Files
+*.bak
+*.backup
+*~
+
+# Package Manager Files
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Build and Distribution
+dist/
+build/
+out/
+target/
+
+# Cache and Runtime
+.cache/
+.npm
+.eslintcache
+.stylelintcache
+
+# Test Coverage
+coverage/
+*.lcov
+.nyc_output
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime Data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Docker
+Dockerfile.local
+
+# Local development files
+.local/
+local.config.*
+development.config.*
+
+# OS generated files
+.fseventsd
+.DocumentRevisions-V100
+.TemporaryItems
+.VolumeIcon.icns
+.AppleDouble
+.LSOverride
+
+# Network folders
+Network Trash Folder
+Temporary Items
+.apdisk

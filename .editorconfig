@@ -1,0 +1,68 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# All files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# Markdown files
+[*.md]
+max_line_length = 100
+trim_trailing_whitespace = false
+
+# JSON and HuJSON files (including Tailscale policy)
+[*.{json,jsonc,hujson}]
+indent_size = 2
+insert_final_newline = true
+max_line_length = 120
+
+# YAML files (including GitHub Actions workflows)
+[*.{yml,yaml}]
+indent_size = 2
+max_line_length = 120
+
+# Shell scripts
+[*.{sh,bash,zsh}]
+indent_size = 2
+max_line_length = 120
+
+# Python files
+[*.py]
+indent_size = 4
+max_line_length = 88
+
+# Makefiles
+[Makefile]
+indent_style = tab
+indent_size = 4
+
+# Configuration files
+[.{cursorrules,clinerules}]
+indent_size = 2
+max_line_length = 100
+
+# AI agent instruction files
+[{AGENTS,CLAUDE,GEMINI_RULES}.md]
+indent_size = 2
+max_line_length = 100
+trim_trailing_whitespace = false
+
+# Docker files
+[{Dockerfile,Dockerfile.*}]
+indent_size = 2
+
+# Git configuration
+[.git{ignore,attributes}]
+indent_size = 2
+
+# License and readme files
+[{LICENSE,README,CHANGELOG,CONTRIBUTING}*]
+max_line_length = 100
+trim_trailing_whitespace = false
