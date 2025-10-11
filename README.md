@@ -27,7 +27,8 @@ This repository manages Tailscale Access Control Lists (ACLs) using GitOps princ
 ├── policy.hujson                     # Main Tailscale ACL policy file
 ├── .github/
 │   └── workflows/tailscale.yml       # GitHub Actions for ACL sync
-├── .cursorrules                      # Cursor IDE configuration
+├── .cursor                           # Cursor IDE configuration
+│   └── rules/tailscale-acl.mdc       # Cursor IDE rules configuration
 ├── .clinerules                       # Cline agent configuration  
 ├── AGENTS.md                         # General AI agent instructions
 ├── CLAUDE.md                         # Claude AI configuration
